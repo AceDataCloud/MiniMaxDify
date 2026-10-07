@@ -40,17 +40,11 @@ parameters:
     zh_Hans: 内容
   human_description:
     en_US: Ordered MiniMax H3 V2 text, image, video, and audio content items. Enter
-      a JSON array. Enter a JSON array or object where applicable. Enter a JSON array
-      or object where applicable. Enter a JSON array or object where applicable. Enter
-      a JSON array or object where applicable. Enter a JSON array or object where
-      applicable.
+      a JSON array. Enter a JSON array or object where applicable.
     zh_Hans: 官方 MiniMax H3 V2 多模态输入数组。每次请求必须包含一个非空 `text`；支持首尾帧图片或多模态参考素材，两类场景不可混用。
       数组或对象请使用 JSON 格式。
   llm_description: Ordered MiniMax H3 V2 text, image, video, and audio content items.
-    Enter a JSON array. Enter a JSON array or object where applicable. Enter a JSON
-    array or object where applicable. Enter a JSON array or object where applicable.
-    Enter a JSON array or object where applicable. Enter a JSON array or object where
-    applicable.
+    Enter a JSON array. Enter a JSON array or object where applicable.
 - name: resolution
   type: select
   required: false

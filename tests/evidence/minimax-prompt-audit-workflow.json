@@ -1,0 +1,260 @@
+{
+  "nodes": [
+    {
+      "id": "start",
+      "type": "custom",
+      "data": {
+        "type": "start",
+        "title": "Start",
+        "desc": "",
+        "variables": [],
+        "selected": false
+      },
+      "position": {
+        "x": 0,
+        "y": 100
+      },
+      "width": 242,
+      "height": 73,
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "zIndex": 0,
+      "positionAbsolute": {
+        "x": 0,
+        "y": 100
+      }
+    },
+    {
+      "id": "generate",
+      "type": "custom",
+      "data": {
+        "type": "tool",
+        "title": "MiniMax H3",
+        "desc": "",
+        "provider_id": "acedatacloud/minimax/minimax",
+        "provider_name": "acedatacloud/minimax/minimax",
+        "provider_type": "builtin",
+        "tool_name": "minimax_enhance_prompt",
+        "tool_label": "MiniMax H3 Enhance Prompt",
+        "tool_configurations": {
+          "model": {
+            "type": "constant",
+            "value": "MiniMax-H3"
+          },
+          "content": {
+            "type": "constant",
+            "value": "[{\"type\":\"text\",\"text\":\"A teal ceramic cube on a cream tabletop. Slow camera pan.\"}]"
+          },
+          "duration": {
+            "type": "constant",
+            "value": 4
+          }
+        },
+        "tool_parameters": {},
+        "tool_node_version": "2",
+        "plugin_unique_identifier": "acedatacloud/minimax:0.0.1@7cadccdd63eb2e0fe081e9ad6ed0bc2e934b190c1bbb6f178497a48af3cabb55",
+        "retry_config": {
+          "retry_enabled": false,
+          "max_retries": 0,
+          "retry_interval": 1000
+        },
+        "selected": false
+      },
+      "position": {
+        "x": 300,
+        "y": 100
+      },
+      "width": 242,
+      "height": 140,
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "zIndex": 0,
+      "positionAbsolute": {
+        "x": 300,
+        "y": 100
+      }
+    },
+    {
+      "id": "wait",
+      "type": "custom",
+      "data": {
+        "type": "tool",
+        "title": "Retrieve completed task",
+        "desc": "",
+        "provider_id": "acedatacloud/minimax/minimax",
+        "provider_name": "acedatacloud/minimax/minimax",
+        "provider_type": "builtin",
+        "tool_name": "minimax_task_retrieve",
+        "tool_label": "MiniMax H3 Retrieve Task",
+        "tool_configurations": {
+          "task_id": {
+            "type": "variable",
+            "value": [
+              "generate",
+              "task_id"
+            ]
+          },
+          "wait_seconds": {
+            "type": "constant",
+            "value": 240
+          }
+        },
+        "tool_parameters": {},
+        "tool_node_version": "2",
+        "plugin_unique_identifier": "acedatacloud/minimax:0.0.1@7cadccdd63eb2e0fe081e9ad6ed0bc2e934b190c1bbb6f178497a48af3cabb55",
+        "retry_config": {
+          "retry_enabled": false,
+          "max_retries": 0,
+          "retry_interval": 1000
+        },
+        "selected": false
+      },
+      "position": {
+        "x": 600,
+        "y": 100
+      },
+      "width": 242,
+      "height": 114,
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "zIndex": 0,
+      "positionAbsolute": {
+        "x": 600,
+        "y": 100
+      }
+    },
+    {
+      "id": "end",
+      "type": "custom",
+      "data": {
+        "type": "end",
+        "title": "Output",
+        "desc": "",
+        "outputs": [
+          {
+            "variable": "status",
+            "value_selector": [
+              "wait",
+              "status"
+            ]
+          },
+          {
+            "variable": "success",
+            "value_selector": [
+              "wait",
+              "success"
+            ]
+          },
+          {
+            "variable": "task_id",
+            "value_selector": [
+              "wait",
+              "task_id"
+            ]
+          },
+          {
+            "variable": "trace_id",
+            "value_selector": [
+              "wait",
+              "trace_id"
+            ]
+          },
+          {
+            "variable": "media_urls",
+            "value_selector": [
+              "wait",
+              "media_urls"
+            ]
+          },
+          {
+            "variable": "data",
+            "value_selector": [
+              "wait",
+              "data"
+            ]
+          },
+          {
+            "variable": "result",
+            "value_selector": [
+              "wait",
+              "result"
+            ]
+          },
+          {
+            "variable": "files",
+            "value_selector": [
+              "wait",
+              "files"
+            ]
+          }
+        ],
+        "selected": false
+      },
+      "position": {
+        "x": 900,
+        "y": 100
+      },
+      "width": 242,
+      "height": 270,
+      "sourcePosition": "right",
+      "targetPosition": "left",
+      "zIndex": 0,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 100
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "start-generate",
+      "source": "start",
+      "target": "generate",
+      "sourceHandle": "source",
+      "targetHandle": "target",
+      "type": "custom",
+      "data": {
+        "sourceType": "start",
+        "targetType": "tool",
+        "isInIteration": false,
+        "isInLoop": false
+      },
+      "zIndex": 0
+    },
+    {
+      "id": "generate-wait",
+      "source": "generate",
+      "target": "wait",
+      "sourceHandle": "source",
+      "targetHandle": "target",
+      "type": "custom",
+      "data": {
+        "sourceType": "tool",
+        "targetType": "tool",
+        "isInIteration": false,
+        "isInLoop": false
+      },
+      "zIndex": 0
+    },
+    {
+      "id": "wait-end",
+      "source": "wait",
+      "target": "end",
+      "sourceHandle": "source",
+      "targetHandle": "target",
+      "type": "custom",
+      "data": {
+        "sourceType": "tool",
+        "targetType": "end",
+        "isInIteration": false,
+        "isInLoop": false
+      },
+      "zIndex": 0
+    }
+  ],
+  "viewport": {
+    "x": 60,
+    "y": 160,
+    "zoom": 0.8
+  }
+}
