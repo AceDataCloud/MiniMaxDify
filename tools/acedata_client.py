@@ -130,7 +130,7 @@ CONTRACTS = {
                 "ratio": "adaptive",
             },
         },
-        "defaults": {"model": "MiniMax-H3", "resolution": "480P", "duration": 4, "ratio": "16:9"},
+        "defaults": {"model": "MiniMax-H3", "resolution": "768P", "duration": 4, "ratio": "16:9"},
         "operation": "generate",
     }
 }
@@ -387,7 +387,7 @@ class AceDataMiniMaxClient:
         retrieved: bool = False,
         synchronous: bool = False,
     ) -> dict[str, Any]:
-        result = body.get("response") if retrieved else body
+        result = body.get("response") if retrieved and "response" in body else body
         if isinstance(result, str):
             try:
                 result = json.loads(result)

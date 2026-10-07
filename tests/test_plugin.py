@@ -157,3 +157,29 @@ def test_readonly_task_query_retries_transient_transport(monkeypatch):
     monkeypatch.setattr(module.time, "sleep", lambda _: None)
     Client("test-token").validate()
     assert len(calls) == 3
+
+
+def test_current_minimax_task_envelope_returns_completed_video():
+    result = Client("test-token")._result(
+        {
+            "task": {
+                "id": "owned-task",
+                "status": "succeeded",
+                "content": {"url": "https://example.org/video.mp4"},
+            }
+        },
+        "owned-task",
+        retrieved=True,
+    )
+    assert result["status"] == "succeeded" and result["media_urls"] == [
+        "https://example.org/video.mp4"
+    ]
+
+
+def test_current_minimax_task_envelope_surfaces_failure():
+    with pytest.raises(APIError):
+        Client("test-token")._result(
+            {"task": {"status": "failed", "error": {"message": "private"}}},
+            "owned-task",
+            retrieved=True,
+        )

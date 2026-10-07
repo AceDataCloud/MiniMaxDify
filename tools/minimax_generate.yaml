@@ -49,16 +49,12 @@ parameters:
     en_US: Resolution
     zh_Hans: 分辨率
   human_description:
-    en_US: Output resolution.
-    zh_Hans: 输出视频分辨率。
+    en_US: Use 768P or 2K. The current live service rejects 480P for MiniMax H3.
+    zh_Hans: 使用 768P 或 2K；当前线上 MiniMax H3 不接受 480P。
   llm_description: Output resolution.
   form: form
-  default: 480P
+  default: 768P
   options:
-  - value: 480P
-    label:
-      en_US: 480P
-      zh_Hans: 480P
   - value: 768P
     label:
       en_US: 768P
