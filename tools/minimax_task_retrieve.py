@@ -9,11 +9,11 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.acedata_client import AceDataMiniMaxClient
 
 
-class MiniMaxTaskRetrieveTool(Tool):
+class MinimaxTaskRetrieveTool(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage, None, None]:
         result = AceDataMiniMaxClient(
             self.runtime.credentials.get("acedata_bearer_token", "")
-        ).invoke("task", tool_parameters)
+        ).invoke("minimax_task_retrieve", tool_parameters)
         yield self.create_json_message(result)
         for name, value in result.items():
             yield self.create_variable_message(name, value)
@@ -22,7 +22,8 @@ class MiniMaxTaskRetrieveTool(Tool):
                 "video" == "image"
                 or "video" == "mixed"
                 and any(
-                    ext in url.lower().split("?")[0] for ext in [".png", ".jpg", ".jpeg", ".webp"]
+                    suffix in url.lower().split("?")[0]
+                    for suffix in [".png", ".jpg", ".jpeg", ".webp"]
                 )
             ):
                 yield self.create_image_message(url)

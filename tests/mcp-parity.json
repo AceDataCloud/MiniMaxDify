@@ -1,0 +1,137 @@
+{
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "mapping": [
+    {
+      "mcp_tool": "minimax_list_models",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Model/action selectors and the API reference; informational guidance does not submit a request."
+    },
+    {
+      "mcp_tool": "minimax_list_actions",
+      "dify_tools": [],
+      "parameters": {},
+      "unresolved": [],
+      "note": "Model/action selectors and the API reference; informational guidance does not submit a request."
+    },
+    {
+      "mcp_tool": "minimax_list_tasks",
+      "dify_tools": [
+        "minimax_list_tasks"
+      ],
+      "parameters": {
+        "limit": "limit",
+        "offset": "offset",
+        "created_at_min": "created_at_min",
+        "created_at_max": "created_at_max"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve"
+    },
+    {
+      "mcp_tool": "minimax_get_task",
+      "dify_tools": [
+        "minimax_task_retrieve"
+      ],
+      "parameters": {
+        "task_id": "task_id"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve"
+    },
+    {
+      "mcp_tool": "minimax_get_tasks_batch",
+      "dify_tools": [
+        "minimax_tasks_retrieve_batch"
+      ],
+      "parameters": {
+        "task_ids": "ids"
+      },
+      "unresolved": [],
+      "note": "Set action=retrieve_batch"
+    },
+    {
+      "mcp_tool": "minimax_delete_task",
+      "dify_tools": [
+        "minimax_task_retrieve"
+      ],
+      "parameters": {
+        "task_id": "task_id"
+      },
+      "unresolved": [],
+      "note": "Set action=delete"
+    },
+    {
+      "mcp_tool": "minimax_generate_video_from_text",
+      "dify_tools": [
+        "minimax_generate_video"
+      ],
+      "parameters": {
+        "prompt": "content[] entries (text, image_url or audio_url)",
+        "resolution": "resolution",
+        "ratio": "ratio",
+        "duration": "duration",
+        "model": "model",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "minimax_generate_video_from_images",
+      "dify_tools": [
+        "minimax_generate_video"
+      ],
+      "parameters": {
+        "image_urls": "content[] entries (text, image_url or audio_url)",
+        "prompt": "content[] entries (text, image_url or audio_url)",
+        "resolution": "resolution",
+        "ratio": "ratio",
+        "duration": "duration",
+        "model": "model",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "minimax_generate_video_from_audio",
+      "dify_tools": [
+        "minimax_generate_video"
+      ],
+      "parameters": {
+        "audio_urls": "content[] entries (text, image_url or audio_url)",
+        "image_urls": "content[] entries (text, image_url or audio_url)",
+        "prompt": "content[] entries (text, image_url or audio_url)",
+        "resolution": "resolution",
+        "ratio": "ratio",
+        "duration": "duration",
+        "model": "model",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    },
+    {
+      "mcp_tool": "minimax_generate_video",
+      "dify_tools": [
+        "minimax_generate_video"
+      ],
+      "parameters": {
+        "content": "content",
+        "resolution": "resolution",
+        "duration": "duration",
+        "ratio": "ratio",
+        "model": "model",
+        "callback_url": "callback_url",
+        "async_": "Dify submit/poll output: async=true, stream=false"
+      },
+      "unresolved": [],
+      "note": ""
+    }
+  ]
+}

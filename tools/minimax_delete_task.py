@@ -9,11 +9,11 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.acedata_client import AceDataMiniMaxClient
 
 
-class MinimaxGenerateTool(Tool):
+class MinimaxDeleteTaskTool(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage, None, None]:
         result = AceDataMiniMaxClient(
             self.runtime.credentials.get("acedata_bearer_token", "")
-        ).invoke("minimax_generate_video", tool_parameters)
+        ).invoke("minimax_delete_task", tool_parameters)
         yield self.create_json_message(result)
         for name, value in result.items():
             yield self.create_variable_message(name, value)

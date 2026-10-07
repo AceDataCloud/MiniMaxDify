@@ -1,0 +1,84 @@
+{
+  "backend_revision": "fa94598267a82545fb1afed6ee26bafd6cbb9ca7",
+  "mcp_revision": "f0eed10abf310824cb4c33d4944c63d3654ac95b",
+  "tools": [
+    {
+      "tool": "minimax_generate_video",
+      "method": "POST",
+      "path": "/minimax/videos",
+      "parameters": [
+        "model",
+        "content",
+        "resolution",
+        "duration",
+        "ratio",
+        "callback_url"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/64f22fd9-0efd-445e-b0b1-135682fd66d7.json"
+    },
+    {
+      "tool": "minimax_list_tasks",
+      "method": "POST",
+      "path": "/minimax/tasks",
+      "parameters": [
+        "action",
+        "id",
+        "ids",
+        "limit",
+        "offset",
+        "created_at_min",
+        "created_at_max",
+        "confirm"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/d6cf922e-378b-4f83-8841-e911b597134a.json"
+    },
+    {
+      "tool": "minimax_delete_task",
+      "method": "POST",
+      "path": "/minimax/tasks",
+      "parameters": [
+        "id",
+        "ids",
+        "limit",
+        "offset",
+        "created_at_min",
+        "created_at_max",
+        "confirm"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/d6cf922e-378b-4f83-8841-e911b597134a.json"
+    },
+    {
+      "tool": "minimax_task_retrieve",
+      "method": "POST",
+      "path": "/minimax/tasks",
+      "parameters": [
+        "task_id",
+        "wait_seconds"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/d6cf922e-378b-4f83-8841-e911b597134a.json"
+    },
+    {
+      "tool": "minimax_tasks_retrieve_batch",
+      "method": "POST",
+      "path": "/minimax/tasks",
+      "parameters": [
+        "ids",
+        "limit",
+        "offset",
+        "created_at_min",
+        "created_at_max"
+      ],
+      "aliases": {},
+      "schema_source": "openapi/d6cf922e-378b-4f83-8841-e911b597134a.json"
+    }
+  ],
+  "mcp_scope": "minimax",
+  "notes": [
+    "Informational MCP model/action lists are represented by tool dropdowns and README capability tables.",
+    "GPT Image covers image-generation/editing/task capabilities of the broader OpenAI MCP; chat is supplied by ModelProviderDify."
+  ]
+}

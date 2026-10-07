@@ -1,0 +1,114 @@
+identity:
+  name: minimax_delete_task
+  author: acedatacloud
+  label:
+    en_US: MiniMax H3 Delete Task
+    zh_Hans: MiniMax H3 删除任务
+description:
+  human:
+    en_US: Delete Task through the Ace Data Cloud MiniMax H3 API.
+    zh_Hans: 通过 Ace Data Cloud MiniMax H3 API 执行 Delete Task。
+  llm: Delete Task through the Ace Data Cloud MiniMax H3 API. For asynchronous results,
+    preserve task_id and use the task retrieval tool until completion. A successful
+    submission is not completed output.
+parameters:
+- name: id
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Id
+    zh_Hans: ID
+  human_description:
+    en_US: Set id for this operation.
+    zh_Hans: 单任务查询的任务 ID。
+  llm_description: Set id for this operation.
+- name: ids
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Ids
+    zh_Hans: ID 列表
+  human_description:
+    en_US: Use the task ID or IDs returned by earlier submissions. Enter a JSON array
+      or object where applicable.
+    zh_Hans: 使用之前提交返回的任务 ID。 数组或对象请使用 JSON 格式。
+  llm_description: Use the task ID or IDs returned by earlier submissions. Enter a
+    JSON array or object where applicable.
+- name: limit
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Limit
+    zh_Hans: 返回数量
+  human_description:
+    en_US: Set limit for this operation.
+    zh_Hans: 列表返回数量。
+  llm_description: Set limit for this operation.
+- name: offset
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Offset
+    zh_Hans: 偏移量
+  human_description:
+    en_US: Set offset for this operation.
+    zh_Hans: 列表偏移量。
+  llm_description: Set offset for this operation.
+- name: created_at_min
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Created At Min
+    zh_Hans: 创建时间下限
+  human_description:
+    en_US: Set created at min for this operation.
+    zh_Hans: 任务创建时间下限，Unix 时间戳（秒）。
+  llm_description: Set created at min for this operation.
+- name: created_at_max
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Created At Max
+    zh_Hans: 创建时间上限
+  human_description:
+    en_US: Set created at max for this operation.
+    zh_Hans: 任务创建时间上限，Unix 时间戳（秒）。
+  llm_description: Set created at max for this operation.
+- name: confirm
+  type: boolean
+  required: false
+  form: form
+  label:
+    en_US: Confirm
+    zh_Hans: 确认删除或归档
+  human_description:
+    en_US: Set true only to confirm the selected deletion or archive operation.
+    zh_Hans: 仅在确认执行删除或归档操作时设为 true。
+  llm_description: Set true only to confirm the selected deletion or archive operation.
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    success:
+      type: boolean
+    task_id:
+      type: string
+    trace_id:
+      type: string
+    media_urls:
+      type: array
+      items:
+        type: string
+    data: {}
+    result:
+      type: object
+extra:
+  python:
+    source: tools/minimax_delete_task.py
