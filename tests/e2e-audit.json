@@ -1,0 +1,92 @@
+{
+  "tested_at": "2026-10-07T08:53:40.275342+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "transport": "official remote-debug; signature verification enabled",
+  "browser_test_run": true,
+  "unit_contract_tests": "29 passed, 1 warning in 0.53s",
+  "marketplace_toolkit_passed": true,
+  "package_sha256": "187d3442135fcbd1ba62382f636ef67675b5d8e7eb65da2280c5556ad6b1a73f",
+  "exact_package_serverless_install_passed": true,
+  "marketplace_install_tested": false,
+  "cloud_tested": false,
+  "cases": [
+    {
+      "case": "MiniMax Prompt Audit",
+      "tool": "minimax_enhance_prompt",
+      "workflow_run_id": "e3d3d997-b15c-43e4-a75c-975d5c9a7297",
+      "workflow_status": "failed",
+      "service_status": null,
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [],
+      "error": "An error occurred in the acedatacloud/minimax/minimax, please contact the author of acedatacloud/minimax/minimax for help, error type: AceDataMiniMaxError, error details: Ace Data Cloud HTTP 404. Check service access and request history before submitting again.",
+      "new_submission": true,
+      "release_status": "Withheld: live endpoint returned HTTP 404.",
+      "media_verification": [],
+      "result_fields": [],
+      "screenshot": "evidence/minimax-prompt-audit.png",
+      "workflow": "evidence/minimax-prompt-audit-workflow.json"
+    },
+    {
+      "case": "MiniMax H3 Audit Batch",
+      "tool": "minimax_tasks_retrieve_batch",
+      "workflow_run_id": "184dde83-c588-4ee9-a95b-2ba6d7ad010c",
+      "workflow_status": "succeeded",
+      "service_status": "succeeded",
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [
+        "https://platform2.cdn.acedata.cloud/minimax/e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a.mp4"
+      ],
+      "error": null,
+      "new_submission": false,
+      "media_verification": [
+        {
+          "case": "MiniMax H3 Audit Batch",
+          "size": 2982990,
+          "sha256": "d49947968dc60a590fd14c617ce9bbf06d2ee13e3ef4e0c548e5890e6565ed1b",
+          "duration": "4.458333",
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "width": null,
+              "height": null
+            }
+          ],
+          "full_decode": true
+        }
+      ],
+      "result_fields": [
+        "items"
+      ],
+      "screenshot": "evidence/minimax-h3-audit-batch.png",
+      "workflow": "evidence/minimax-h3-audit-batch-workflow.json"
+    },
+    {
+      "case": "MiniMax Tasks List Audit",
+      "tool": "minimax_list_tasks",
+      "workflow_run_id": "83371c5e-87ec-4582-9cbb-552541d09e85",
+      "workflow_status": "succeeded",
+      "service_status": "succeeded",
+      "task_id": "",
+      "trace_id": "",
+      "media_urls": [],
+      "error": null,
+      "new_submission": false,
+      "billing": [],
+      "billing_match": "owned credential, API and browser run window",
+      "media_verification": [],
+      "result_fields": [],
+      "workflow": "evidence/minimax-tasks-list-audit-workflow.json"
+    }
+  ],
+  "primary_blocked": false,
+  "scope_note": "Recorded cases only. Batch regressions reuse earlier paid successful tasks; those media generations are not billed or claimed as new. New paid calls have separate usage reconciliation. Optional untested models/actions are not claimed as passed; original failures and their corrections are preserved."
+}

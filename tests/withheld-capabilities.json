@@ -1,0 +1,14 @@
+[
+  {
+    "tool": "minimax_enhance_prompt",
+    "path": "/minimax/prompt-enhancement",
+    "status": "withheld_from_release",
+    "reason": "Prompt-enhancement returned HTTP 404 in real Dify. Extra MiniMax endpoints beyond the current MCP are held until live availability is verified; generation and task APIs remain supported."
+  },
+  {
+    "tool": "minimax_regenerate_video",
+    "path": "/minimax/regenerate",
+    "status": "withheld_from_release",
+    "reason": "Prompt-enhancement returned HTTP 404 in real Dify. Extra MiniMax endpoints beyond the current MCP are held until live availability is verified; generation and task APIs remain supported."
+  }
+]

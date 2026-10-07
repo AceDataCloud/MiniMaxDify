@@ -8,21 +8,23 @@ description:
   human:
     en_US: Generate MiniMax H3 video from text, images, or audio guidance.
     zh_Hans: 使用文本、图片或音频引导生成 MiniMax H3 视频。
-  llm: Generate a 4-15 second MiniMax H3 video at 768P or 2K. Prompt is required;
-    audio also requires images. Generation returns a task ID. Query the same task
-    until complete; never resubmit a pending generation.
+  llm: Generate MiniMax H3 video from text, images, or audio guidance. For asynchronous
+    results, preserve task_id and use the task retrieval tool until completion. A
+    successful submission is not completed output.
 parameters:
 - name: model
   type: select
   required: false
+  form: form
   label:
     en_US: Model
     zh_Hans: 模型
   human_description:
-    en_US: Select the current API model for this operation.
+    en_US: Select a model currently supported by this API. Availability and pricing
+      depend on the chosen model.
     zh_Hans: 模型名称，当前仅支持官方值 `MiniMax-H3`。
-  llm_description: Select the current API model for this operation.
-  form: form
+  llm_description: Select a model currently supported by this API. Availability and
+    pricing depend on the chosen model.
   default: MiniMax-H3
   options:
   - value: MiniMax-H3
@@ -32,27 +34,29 @@ parameters:
 - name: content
   type: string
   required: true
+  form: form
   label:
     en_US: Content
     zh_Hans: 内容
   human_description:
     en_US: Ordered MiniMax H3 V2 text, image, video, and audio content items. Enter
-      a JSON array.
-    zh_Hans: 按顺序排列的 MiniMax H3 V2 文本、图片、视频和音频内容项。 请填写 JSON 数组。
+      a JSON array. Enter a JSON array or object where applicable.
+    zh_Hans: 官方 MiniMax H3 V2 多模态输入数组。每次请求必须包含一个非空 `text`；支持首尾帧图片或多模态参考素材，两类场景不可混用。
+      数组或对象请使用 JSON 格式。
   llm_description: Ordered MiniMax H3 V2 text, image, video, and audio content items.
-    Enter a JSON array.
-  form: form
+    Enter a JSON array. Enter a JSON array or object where applicable.
 - name: resolution
   type: select
   required: false
+  form: form
   label:
     en_US: Resolution
     zh_Hans: 分辨率
   human_description:
     en_US: Use 768P or 2K. The current live service rejects 480P for MiniMax H3.
-    zh_Hans: 使用 768P 或 2K；当前线上 MiniMax H3 不接受 480P。
-  llm_description: Output resolution.
-  form: form
+    zh_Hans: 视频分辨率，必填，可选 `768P` 或 `2K`。
+  llm_description: Use 768P or 2K. The current live service rejects 480P for MiniMax
+    H3.
   default: 768P
   options:
   - value: 768P
@@ -66,26 +70,28 @@ parameters:
 - name: duration
   type: number
   required: false
+  form: form
   label:
     en_US: Duration
     zh_Hans: 时长
   human_description:
     en_US: Integer duration from 4 to 15 seconds.
-    zh_Hans: 4–15 秒整数时长。
+    zh_Hans: 视频时长，必填，4–15 秒整数。
   llm_description: Integer duration from 4 to 15 seconds.
-  form: form
   default: 4
+  min: 4
+  max: 15
 - name: ratio
   type: select
   required: false
+  form: form
   label:
     en_US: Aspect Ratio
     zh_Hans: 宽高比
   human_description:
     en_US: Output aspect ratio.
-    zh_Hans: 输出视频宽高比。
+    zh_Hans: 视频宽高比。文生视频必填且不能为 `adaptive`；图生视频默认 `adaptive`；多模态参考可选。
   llm_description: Output aspect ratio.
-  form: form
   default: '16:9'
   options:
   - value: adaptive
@@ -116,6 +122,17 @@ parameters:
     label:
       en_US: '9:16'
       zh_Hans: '9:16'
+- name: callback_url
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Callback Url
+    zh_Hans: 回调 URL
+  human_description:
+    en_US: Set callback url for this operation.
+    zh_Hans: 可选的任务状态回调 URL。提供后自动启用异步模式，接口立即返回任务标识，最终结果将发送到该 URL。
+  llm_description: Set callback url for this operation.
 output_schema:
   type: object
   properties:

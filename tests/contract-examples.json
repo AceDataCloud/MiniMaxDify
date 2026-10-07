@@ -1,0 +1,75 @@
+[
+  {
+    "name": "minimax_generate_video-1",
+    "tool": "minimax_generate_video",
+    "inputs": {
+      "content": "[{\"type\":\"text\",\"text\":\"Test\"}]"
+    },
+    "method": "POST",
+    "path": "/minimax/videos",
+    "body": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Test"
+        }
+      ],
+      "resolution": "768P"
+    }
+  },
+  {
+    "name": "minimax_list_tasks-4",
+    "tool": "minimax_list_tasks",
+    "inputs": {
+      "limit": 2
+    },
+    "method": "POST",
+    "path": "/minimax/tasks",
+    "body": {
+      "action": "retrieve",
+      "limit": 2
+    },
+    "read_only": true
+  },
+  {
+    "name": "minimax_delete_task-5",
+    "tool": "minimax_delete_task",
+    "inputs": {
+      "id": "owned-task",
+      "confirm": true
+    },
+    "method": "POST",
+    "path": "/minimax/tasks",
+    "body": {
+      "id": "owned-task",
+      "action": "delete"
+    }
+  },
+  {
+    "name": "minimax_delete_task-6",
+    "tool": "minimax_delete_task",
+    "inputs": {
+      "id": "owned-task"
+    },
+    "method": "POST",
+    "path": "/minimax/tasks",
+    "body": {},
+    "error": true
+  },
+  {
+    "name": "minimax_tasks_retrieve_batch-7",
+    "tool": "minimax_tasks_retrieve_batch",
+    "inputs": {
+      "ids": "[\"owned-task\"]"
+    },
+    "method": "POST",
+    "path": "/minimax/tasks",
+    "body": {
+      "action": "retrieve_batch",
+      "ids": [
+        "owned-task"
+      ]
+    },
+    "read_only": true
+  }
+]

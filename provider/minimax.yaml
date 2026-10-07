@@ -9,8 +9,8 @@ identity:
   description:
     en_US: Use the Ace Data Cloud MiniMax H3 APIs in Dify workflows.
     zh_Hans: 在 Dify 工作流中使用 Ace Data Cloud MiniMax H3 API。
-  icon: icon.jpg
-  icon_dark: icon.jpg
+  icon: icon.png
+  icon_dark: icon.png
   tags:
   - videos
 credentials_for_provider:
@@ -29,7 +29,10 @@ credentials_for_provider:
     url: https://platform.acedata.cloud/console/credentials
 tools:
 - tools/minimax_generate.yaml
+- tools/minimax_list_tasks.yaml
+- tools/minimax_delete_task.yaml
 - tools/minimax_task_retrieve.yaml
+- tools/minimax_tasks_retrieve_batch.yaml
 extra:
   python:
     source: provider/minimax.py
