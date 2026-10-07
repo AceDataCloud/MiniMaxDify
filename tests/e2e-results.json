@@ -1,0 +1,77 @@
+{
+  "tested_at": "2026-10-07T06:45:23.092064+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "transport": "official remote-debug; signature verification true",
+  "browser_test_run": true,
+  "marketplace_install_tested": false,
+  "cloud_tested": false,
+  "cases": [
+    {
+      "case": "MiniMax Corrected Dify Result",
+      "operation": "minimax_generate_video",
+      "workflow_run_id": "54520242-ee54-4ce7-b52d-f1579e6e0c7f",
+      "workflow_status": "succeeded",
+      "task_status": "succeeded",
+      "task_id": "e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a",
+      "trace_id": "894e8b03-ceed-423e-ae86-607848293474",
+      "media_urls": [
+        "https://platform2.cdn.acedata.cloud/minimax/e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a.mp4"
+      ],
+      "output": {
+        "task": {
+          "content": {
+            "url": "https://platform2.cdn.acedata.cloud/minimax/e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a.mp4"
+          },
+          "created_at": 1791354550,
+          "duration": 4,
+          "id": "e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a",
+          "modality": "video",
+          "model": "MiniMax-H3",
+          "resolution": "768P",
+          "status": "succeeded",
+          "task_type": "generation",
+          "updated_at": 1791354563,
+          "usage": {
+            "input_image_count": 0,
+            "input_seconds": 0,
+            "output_seconds": 4,
+            "total_seconds": 4
+          }
+        }
+      },
+      "billing": {
+        "id": "234dafb2-89bf-47fd-b9c6-0fd7ed354e14",
+        "trace_id": "894e8b03-ceed-423e-ae86-607848293474",
+        "status_code": 200,
+        "deducted_amount": 2.162549592,
+        "created_at": "2026-10-07T06:29:07.125929Z"
+      },
+      "media_verification": [
+        {
+          "case": "MiniMax Corrected Dify Result",
+          "size": 2982990,
+          "sha256": "d49947968dc60a590fd14c617ce9bbf06d2ee13e3ef4e0c548e5890e6565ed1b",
+          "duration": "4.458333",
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1344,
+              "height": 768
+            },
+            {
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "width": null,
+              "height": null
+            }
+          ],
+          "full_decode": true
+        }
+      ],
+      "screenshot": "evidence/minimax-corrected-dify-result.png",
+      "workflow": "evidence/minimax-corrected-dify-result-workflow.json"
+    }
+  ],
+  "scope_note": "These completed cases establish the primary plugin operation. Additional exposed operations require their own case before claiming full coverage."
+}
