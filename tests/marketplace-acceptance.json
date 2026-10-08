@@ -1,0 +1,31 @@
+{
+  "repo": "MiniMaxDify",
+  "marketplace_url": "https://marketplace.dify.ai/plugin/acedatacloud/minimax",
+  "identifier": "acedatacloud/minimax:0.0.1@88ddb91f7da51660cea5956b8b9bec367fc7f83cd7c0ff387258626892ff473f",
+  "installation_source": "marketplace",
+  "workflow_id": "cfe1bcb9-0874-49e6-bc53-9204c9f8ae3c",
+  "workflow_status": "succeeded",
+  "service_status": "succeeded",
+  "case": "MiniMax H3 Marketplace Installed",
+  "media_urls": [
+    "https://platform2.cdn.acedata.cloud/minimax/e3fcc32d-5d6e-47ec-8ba9-d683cff63e3a.mp4"
+  ],
+  "outputs": {
+    "status": "succeeded",
+    "success": true,
+    "task_id": "",
+    "trace_id": ""
+  },
+  "icon_matches_source": true,
+  "paid_generation_reused": true,
+  "prior_media_decode_evidence": true,
+  "media_readback_status": "completed existing task output; generation not repeated",
+  "tested_at": "2026-10-08T01:26:57.567309+00:00",
+  "environment": "Dify CE 1.17.1 / plugin daemon 0.6.10-local",
+  "signature_verification_enabled": true,
+  "remote_debug_used": false,
+  "marketplace_install_tested": true,
+  "cloud_tested": false,
+  "screenshot": "evidence/marketplace-20261008.png",
+  "workflow": "evidence/marketplace-20261008-workflow.json"
+}
