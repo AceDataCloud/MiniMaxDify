@@ -6,12 +6,7 @@ app:
   mode: workflow
   name: MiniMax H3 Step-by-step Tutorial
   use_icon_as_answer_icon: false
-dependencies:
-- current_identifier: null
-  type: marketplace
-  value:
-    marketplace_plugin_unique_identifier: acedatacloud/minimax:0.0.1@88ddb91f7da51660cea5956b8b9bec367fc7f83cd7c0ff387258626892ff473f
-    version: null
+dependencies: []
 kind: app
 version: 0.7.0
 workflow:
@@ -86,7 +81,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/minimax:0.0.1@88ddb91f7da51660cea5956b8b9bec367fc7f83cd7c0ff387258626892ff473f
         provider_id: acedatacloud/minimax/minimax
         provider_name: acedatacloud/minimax/minimax
         provider_type: builtin
@@ -134,7 +128,6 @@ workflow:
       zIndex: 0
     - data:
         desc: ''
-        plugin_unique_identifier: acedatacloud/minimax:0.0.1@88ddb91f7da51660cea5956b8b9bec367fc7f83cd7c0ff387258626892ff473f
         provider_id: acedatacloud/minimax/minimax
         provider_name: acedatacloud/minimax/minimax
         provider_type: builtin
